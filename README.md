@@ -31,4 +31,4 @@ Preview the production export locally:
 npm run preview
 ```
 
-External links use the supplied LinkedIn profile and Amazon book listing. No GitHub username, email, or project repository URL was provided, so none is invented. Project notes distinguish concepts, proofs of concept, and historical work. Add verified links in `src/App.jsx` when available. The original profile Markdown is not included in the export.
+Contact links use the supplied LinkedIn profile, GitHub profile (https://github.com/anishgorakavi/), and email (anish.gorakavi@my.utexas.edu). The book links to the supplied Amazon listing. No project repository URLs were provided, so none are invented. Project notes distinguish concepts, proofs of concept, and historical work. Add verified links in `src/App.jsx` when available. The original profile Markdown is not included in the export.
