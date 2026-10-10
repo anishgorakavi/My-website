@@ -1,0 +1,15 @@
+import { build } from 'esbuild';
+import { mkdir, rm, readFile, writeFile, copyFile } from 'node:fs/promises';
+import { renderToString } from 'react-dom/server';
+import React from 'react';
+await rm('dist', { recursive: true, force: true });
+await mkdir('dist/assets', { recursive: true });
+await mkdir('.build', { recursive: true });
+await build({entryPoints:['src/main.jsx'],bundle:true,minify:true,outdir:'dist/assets',entryNames:'site',format:'esm',define:{'process.env.NODE_ENV':'"production"'},jsx:'automatic'});
+await build({entryPoints:['src/App.jsx'],bundle:true,platform:'node',format:'esm',outfile:'.build/app.mjs',packages:'external',jsx:'automatic'});
+const {default:App}=await import('../.build/app.mjs');
+let html=await readFile('index.html','utf8');
+html=html.replace('<div id="root"></div>', `<div id="root">${renderToString(React.createElement(App))}</div>`).replace('<script type="module" src="/src/main.jsx"></script>','<script type="module" src="./assets/site.js"></script>').replace('</head>','<link rel="stylesheet" href="./assets/site.css"/></head>');
+await writeFile('dist/index.html',html);
+await copyFile('public/favicon.svg','dist/favicon.svg');
+console.log('Static export ready in dist/ — pre-rendered HTML, CSS, JS, and favicon.');
