@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080c13" />
+    <meta name="description" content="Think Lab — Artificial Intelligence" />
+    <title>think lab — Artificial Intelligence</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <script src="../theme.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="header">
+      <a class="brand" href="../" aria-label="Anish Gorakavi home">
+        <span class="brand-icon">AG<span>_</span></span>
+        <span>ANISH GORAKAVI</span>
+      </a>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to light mode">
+          <span aria-hidden="true">☼</span><span>Light</span>
+        </button>
+        <a class="back-link" href="../"><span aria-hidden="true">&#8592;</span> Portfolio</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="intro" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <p class="eyebrow"><span class="signal"></span>THINK FAIRE</p>
+          <h1 id="page-title">think<br /><span>lab<span class="cursor">_</span></span></h1>
+          <p class="topic">My Assigned Topic: Artificial Intelligence</p>
+        </div>
+
+        <div class="model-window" aria-hidden="true">
+          <div class="window-bar">
+            <span class="window-dots"><i></i><i></i><i></i></span>
+            <span>THINKLAB.SYS</span>
+            <span>AI</span>
+          </div>
+          <div class="model-map">
+            <span class="node node-one">01</span>
+            <span class="node node-two">02</span>
+            <span class="node node-three">03</span>
+            <span class="line line-one"></span>
+            <span class="line line-two"></span>
+            <span class="core">?</span>
+          </div>
+          <div class="window-footer"><span>THREE QUESTIONS</span><span>ONE SYSTEM</span></div>
+        </div>
+      </section>
+
+      <section class="topics" aria-labelledby="topics-title">
+        <div class="section-label"><span>01</span><span id="topics-title">Three Main Topics of Interest for the think faire presentation:</span><i></i></div>
+
+        <article class="topic-card">
+          <div class="topic-number">1:</div>
+          <div class="topic-content">
+            <h2>Cascading effect of agent hallucination</h2>
+            <p>Most of us heard of the wikipedia definition of the AI agent, an ai agent  is an LLM that recursively does tasks. But how does it define a goal as accomplished? As the same model does work sequentially, hallucinations are more than likely accumulate, because an LLM is engineered to well write text and do that very well. Like a domino effect, how can agentic hallucinations be reduced.</p>
+          </div>
+          <div class="cascade" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
+
+        <article class="topic-card">
+          <div class="topic-number">2:</div>
+          <div class="topic-content">
+            <h2>AI training on past AI data</h2>
+            <p>The Dead Internet theory is the idea that more of the internet gets filled of ai and bots and less actual humans. Most AI models train from a wide range of sources from the internet. But they also produce an enormous volume of text and image to the internet as well. As the models themselves hallucinate, what happens to future models that also get trained?</p>
+          </div>
+          <div class="loop" aria-hidden="true"><span>AI</span><i></i><span>AI</span></div>
+        </article>
+
+        <article class="topic-card">
+          <div class="topic-number">3:</div>
+          <div class="topic-content">
+            <h2>how has Software engineering shifted with the advent of vibe coding</h2>
+            <p>Since the last year, many people have been scared with how AI is rapidly generating code and building impressive apps with around one or two commands. However, there are a lot more things involved than just learning how to code.   </p>
+          </div>
+          <div class="code-block" aria-hidden="true"><span>&gt;_</span><i></i><i></i><i></i></div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand" href="../">
+        <span class="brand-icon">AG<span>_</span></span>
+        <span>ANISH GORAKAVI</span>
+      </a>
+      <span>THINK LAB · ARTIFICIAL INTELLIGENCE</span>
+      <a href="#">Back to top ↑</a>
+    </footer>
+    <script>
+      const themeButton = document.querySelector('.theme-toggle');
+      const themeIcon = themeButton.querySelector('span:first-child');
+      const themeLabel = themeButton.querySelector('span:last-child');
+
+      function syncThemeButton() {
+        const theme = window.siteTheme.get();
+        const nextTheme = theme === 'dark' ? 'light' : 'dark';
+        themeIcon.textContent = theme === 'dark' ? '☼' : '☾';
+        themeLabel.textContent = nextTheme === 'light' ? 'Light' : 'Dark';
+        themeButton.setAttribute('aria-label', `Switch to ${nextTheme} mode`);
+      }
+
+      themeButton.addEventListener('click', () => window.siteTheme.toggle());
+      window.addEventListener('site-theme-change', syncThemeButton);
+      syncThemeButton();
+    </script>
+  </body>
+</html>
